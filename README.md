@@ -289,9 +289,7 @@ Bu proje **MIT lisansı** altında lisanslanmıştır. Detaylar için `LICENSE` 
 
 ## 📞 İletişim
 
-- 🌐 **GitHub**: [Proje Linki](https://github.com/yourusername/sentiment-analiys)
-- 📧 **E-posta**: your.email@example.com
-- 💬 **Issues**: GitHub Issues sayfasını kullanın
+- 🌐 **GitHub**: [Proje Linki](https://github.com/TheRedSS/sentiment-analiys)
 
 
 *Bu proje, doğal dil işleme ve duygu analizi alanında gelişmiş teknikler kullanarak 27 farklı duygu türünü sınıflandırabilen güçlü bir yapay zeka modeli sunar.*
