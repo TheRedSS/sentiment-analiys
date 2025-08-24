@@ -43,15 +43,23 @@ class TextProcessor:
         # Küçük harfe çevir
         text = text.lower()
         
-        # Özel karakterleri kaldır
-        text = re.sub(r'[^a-zA-Z\s]', '', text)
+        # Sadece gereksiz karakterleri kaldır, noktalama işaretlerini koru
+        text = re.sub(r'[^\w\s\.\!\?\,\;\:\-]', '', text)
         
         # Tokenize et
         tokens = word_tokenize(text)
         
-        # Stop words'leri kaldır ve lemmatize et
-        tokens = [self.lemmatizer.lemmatize(token) for token in tokens 
-                 if token not in self.stop_words and len(token) > 2]
+        # Stop words'leri kaldır ama daha az agresif
+        # Duygu analizi için önemli kelimeleri koru
+        important_words = {'love', 'hate', 'happy', 'sad', 'angry', 'excited', 'worried', 
+                          'proud', 'ashamed', 'surprised', 'disappointed', 'grateful', 
+                          'fear', 'joy', 'sadness', 'anger', 'fear', 'surprise', 'disgust'}
+        
+        tokens = [token for token in tokens 
+                 if token not in self.stop_words or token in important_words]
+        
+        # Lemmatization'ı kaldır - duygu analizi için kelime kökleri önemli olmayabilir
+        # tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
         
         return ' '.join(tokens)
     
